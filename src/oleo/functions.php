@@ -17,7 +17,7 @@ $fabricantes = null;
  *  Listagem de oleo
  */
 function index() {
-	global $oleo;
+	global $oleos;
 	$oleos = find_all('oleo');
 }
 
