@@ -16,7 +16,7 @@ $fabricantefiltro = null;
  *  Listagem de Fabricantes de Filtro
  */
 function index() {
-	global $fabricantefiltro;
+	global $fabricantesfiltro;
 	$fabricantesfiltro = find_all('fabricante_filtro');
 }
 
