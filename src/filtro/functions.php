@@ -7,6 +7,7 @@ require_once('../../database/filtro/findfiltro.php');
 require_once('../../database/filtro/insertfiltro.php');
 require_once('../../database/filtro/removefiltro.php');
 require_once('../../database/filtro/updatefiltro.php');
+require_once('../../database/fabricantefiltro/nomesfabricantefiltro.php');
 
 
 $filtros = null;
@@ -17,7 +18,7 @@ $fabricantes = null;
  *  Listagem de Filtro
  */
 function index() {
-	global $filtro;
+	global $filtros;
 	$filtros = find_all('filtro');
 }
 
@@ -83,4 +84,12 @@ function delete($id_filtro = null) {
   $filtro = remove('filtro', $id_filtro);
 
   header('location: index.php');
+}
+
+/**
+ * Buscar as informações pelo ID
+ */
+function translateFabricantesF($id){
+  global $nameFab;
+  $nameFab = nomesFabF($id);
 }
