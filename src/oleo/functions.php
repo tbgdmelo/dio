@@ -7,7 +7,7 @@ require_once('../../database/oleo/findoleo.php');
 require_once('../../database/oleo/insertoleo.php');
 require_once('../../database/oleo/removeoleo.php');
 require_once('../../database/oleo/updateoleo.php');
-
+require_once('../../database/fabricanteoleo/nomesfabricanteoleo.php');
 
 $oleos = null;
 $oleo = null;
@@ -83,4 +83,12 @@ function delete($id_oleo = null) {
   $oleo = remove('oleo', $id_oleo);
 
   header('location: index.php');
+}
+
+/**
+ * Busca os fabricantes pelo ID
+ */
+function translateFaboleo($id){
+  global $nameFaboleo;
+  $nameFaboleo = nomesFaboleo($id);
 }
