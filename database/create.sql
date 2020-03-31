@@ -5,7 +5,7 @@
 --
 
 CREATE DATABASE dio_system;
-use dio_system2;
+use dio_system;
 
 CREATE TABLE modelo_maquina(
     id_modelo INT AUTO_INCREMENT,
