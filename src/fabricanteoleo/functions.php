@@ -16,7 +16,7 @@ $fabricanteoleo = null;
  *  Listagem de Fabricantes de oleo
  */
 function index() {
-	global $fabricanteoleo;
+	global $fabricantesoleo;
 	$fabricantesoleo = find_all('fabricante_oleo');
 }
 

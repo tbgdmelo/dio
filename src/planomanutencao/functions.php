@@ -7,6 +7,8 @@ require_once('../../database/planomanutencao/findplanomanutencao.php');
 require_once('../../database/planomanutencao/insertplanomanutencao.php');
 require_once('../../database/planomanutencao/removeplanomanutencao.php');
 require_once('../../database/planomanutencao/updateplanomanutencao.php');
+require_once('../../database/turno/nomesturno.php');
+require_once('../../database/maquina/nomesmaquina.php');
 
 
 $planosmanutencao = null;
@@ -92,4 +94,14 @@ function delete($id_plano = null) {
   $planomanutencao = remove('plano_manutencao', $id_plano);
 
   header('location: index.php');
+}
+
+/**
+ * Buscar as informações pelo ID
+ */
+function translatePlano($id_turno, $serial_maq){
+  global $nameTurno;
+  global $nameMaq;
+  $nameTurno = nomesTurno($id_turno);
+  $nameMaq = nomesMaq($serial_maq);
 }
