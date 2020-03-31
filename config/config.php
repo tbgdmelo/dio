@@ -1,7 +1,7 @@
 <?php
 
 /** O nome do banco de dados*/
-define('DB_NAME', 'dio-system');
+define('DB_NAME', 'dio_system');
 
 /** Usuário do banco de dados MySQL */
 define('DB_USER', 'root');
@@ -18,7 +18,7 @@ if ( !defined('ABSPATH') )
 
 /** caminho no server para o sistema **/
 if ( !defined('BASEURL') )
-    define('BASEURL', '/dio2/');
+    define('BASEURL', '/dio/');
 
 /** caminho das imagens**/
 if ( !defined('IMG') )
