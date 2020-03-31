@@ -1,3 +1,12 @@
+--
+-- Developed by: Thiago Melo - tbgdmelo@gmail.com
+-- Project: https://github.com/tbgdmelo/dio
+-- Last updated: 30/03/2020 20:49
+--
+
+CREATE DATABASE dio_system;
+use dio_system2;
+
 CREATE TABLE modelo_maquina(
     id_modelo INT AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL UNIQUE,
