@@ -4,9 +4,9 @@
 $('#delete-modal-fabfiltro').on('show.bs.modal', function (event) {
 
     var button = $(event.relatedTarget);
-    var id_fabfiltro = button.data('fabricantefiltro');
+    var id = button.data('fabfiltro');
 
     var modal = $(this);
-    modal.find('.modal-title').text('Excluir Fabricante #' + id_fabfiltro);
-    modal.find('#confirm').attr('href', 'delete.php?id_fabfiltro=' + id_fabfiltro);
+    modal.find('.modal-title').text('Excluir Fabricante #' + id);
+    modal.find('#confirm').attr('href', 'delete.php?id_fabfiltro=' + id);
 })
