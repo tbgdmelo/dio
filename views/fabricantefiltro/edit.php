@@ -1,8 +1,7 @@
-<?php 
-  require_once('../../src/fabricantefiltro/functions.php'); 
-  index();
+<?php
+ require_once('../../src/fabricantefiltro/functions.php'); 
+ edit();
 ?>
-
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +10,7 @@
     <link href="../../front/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../../front/css/sb-admin-2.min.css" rel="stylesheet">
-    <title>Fabricantes de Filtro</title>
+    <title>Cadastro Fabricante Filtro</title>
 </head>
 <style type="text/css">/* Chart.js */
     @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style><style type="text/css">/* Chart.js */
@@ -108,37 +107,14 @@
   <!-- End of Topbar -->
 
   <!-- Begin Page Content -->
-<div class="container-fluid">
-    <h2 class="h3 mb-0 text-gray-800">Fabricantes Cadastrados</h2>
-    <table class="table table-hover">
-    <thead>
-    <tr>
-        <th>Nome</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php if ($fabricantesfiltro ) : ?>
-        <?php foreach ($fabricantesfiltro as $fabricantefiltro) : ?>
-            <tr>
-                <td><?php echo $fabricantefiltro['nome']; ?></td>
-                <td class="actions text-right">
-                    <a href="edit.php?id_fabfiltro=<?php echo $fabricantefiltro['id_fabfiltro']; ?>" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-fabfiltro" data-fabricantefiltro="<?php echo $fabricantefiltro['id_fabfiltro']; ?>"> Excluir</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <tr>
-            <td colspan="6">Nenhum registro encontrado.</td>
-        </tr>
-    <?php endif; ?>
-    </tbody>
-</table>
-<?php include('modal.php'); ?>
 
-<script src="../../front/js/jquery.min.js"></script>
 
-<script src="../../front/js/bootstrap.min.js"></script>
 
-<script src="../../front/js/modal_fabfiltro.js"></script>
-
+  <!-- Footer -->
+  <footer class="sticky-footer" style="position: absolute; bottom: 0;">
+    <div class="container my-auto">
+      <div class="copyright my-auto">
+        <span>Copyright © Dio System 2020</span>
+      </div>
+    </div>
+  </footer>
