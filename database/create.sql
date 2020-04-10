@@ -63,10 +63,9 @@ CREATE TABLE maquina(
     filtro INT,
     PRIMARY KEY (snum),
     FOREIGN KEY (modelo) REFERENCES modelo_maquina (id_modelo)
-    ON DELETE SET NULL
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
     FOREIGN KEY (lubrificacao) REFERENCES tipo_lubrificacao(id_lubrificacao)
-    ON DELETE SET NULL
     ON UPDATE CASCADE,
     FOREIGN KEY (oleo) REFERENCES oleo (id_oleo)
     ON DELETE SET NULL
