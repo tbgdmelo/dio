@@ -31,6 +31,8 @@ CREATE TABLE oleo(
     fabricante INT,
     PRIMARY KEY (id_oleo),
     FOREIGN KEY (fabricante) REFERENCES fabricante_oleo (id_faboleo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE fabricante_filtro(
@@ -45,6 +47,8 @@ CREATE TABLE filtro(
     fabricante INT,
     PRIMARY KEY (id_filtro),
     FOREIGN KEY (fabricante) REFERENCES fabricante_oleo (id_faboleo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE maquina(
@@ -58,10 +62,18 @@ CREATE TABLE maquina(
     oleo INT,
     filtro INT,
     PRIMARY KEY (snum),
-    FOREIGN KEY (modelo) REFERENCES modelo_maquina (id_modelo),
-    FOREIGN KEY (lubrificacao) REFERENCES tipo_lubrificacao(id_lubrificacao),
-    FOREIGN KEY (oleo) REFERENCES oleo (id_oleo),
+    FOREIGN KEY (modelo) REFERENCES modelo_maquina (id_modelo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (lubrificacao) REFERENCES tipo_lubrificacao(id_lubrificacao)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (oleo) REFERENCES oleo (id_oleo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (filtro) REFERENCES filtro (id_filtro)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE tipo_peca(
@@ -78,6 +90,8 @@ CREATE TABLE peca(
     hrs_prod INT NOT NULL,
     PRIMARY KEY (id_peca),
     FOREIGN KEY (tipo) REFERENCES tipo_peca (id_tipo)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE turno(
@@ -94,24 +108,36 @@ CREATE TABLE plano_manutencao(
     motivo VARCHAR (500),
     serial_maquina VARCHAR(50),
     PRIMARY KEY (id_plano),
-    FOREIGN KEY (turno) REFERENCES turno (id_turno),
+    FOREIGN KEY (turno) REFERENCES turno (id_turno)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (serial_maquina) REFERENCES maquina (snum)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE peca_maquina(
     serial_maquina VARCHAR(50),
     id_peca INT,
     PRIMARY KEY (serial_maquina, id_peca),
-    FOREIGN KEY (serial_maquina) REFERENCES maquina (snum),
+    FOREIGN KEY (serial_maquina) REFERENCES maquina (snum)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (id_peca) REFERENCES peca (id_peca)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE peca_plano(
     id_plano INT,
     id_peca INT,
     PRIMARY KEY (id_plano, id_peca),
-    FOREIGN KEY (id_plano) REFERENCES plano_manutencao (id_plano),
+    FOREIGN KEY (id_plano) REFERENCES plano_manutencao (id_plano)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
     FOREIGN KEY (id_peca) REFERENCES peca (id_peca)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 
