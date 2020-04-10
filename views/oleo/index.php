@@ -144,4 +144,4 @@
 
 <script src="<?php echo BASEURL; ?>front/js/bootstrap.min.js"></script>
 
-<script src="<?php echo BASEURL; ?>front/js/modal_faboleo.js"></script>
+<script src="<?php echo BASEURL; ?>front/js/modal_oleo.js"></script>
