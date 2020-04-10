@@ -11,6 +11,8 @@ require_once('../../database/modelomaquina/nomesmodelo.php');
 require_once('../../database/tipolubrificacao/nomeslubrificacao.php');
 require_once('../../database/oleo/nomesoleo.php');
 require_once('../../database/filtro/nomesfiltro.php');
+require_once('../../database/peca/nomespeca.php');
+require_once('../../database/peca/pecasmaquina.php');
 
 $maquinas = null;
 $maquina = null;
@@ -19,6 +21,9 @@ $modelos = null;
 $filtros = null;
 $oleos = null;
 $pecas = null;
+$pecamaquinas = null;
+$pecamaquina = null;
+$name = null;
 /**
  *  Listagem de maquina
  */
@@ -83,10 +88,11 @@ function add() {
 /**
  *  Cadastro de pecas da maquina
  */
-function addPecas() {
-  
+function addPecas($snum = null) {
+    global $maquina;
+    $maquina = find('maquina', $snum);
+
   if (!empty($_POST['peca_maquina'])) {
-    
     $peca_maquina = $_POST['peca_maquina'];
     save('peca_maquina', $peca_maquina);
     header('location: index.php');
@@ -148,4 +154,19 @@ function translate($id_modelo, $id_lub, $id_oleo, $id_filtro){
   $nameLub = nomesLubrificacoes($id_lub);
   $nameOleo = nomesOleos($id_oleo);
   $nameFiltro = nomesFiltros($id_filtro);
+}
+
+function translateOleo( $id_oleo){
+  global $nameOleo;
+  $nameOleo = nomesOleos($id_oleo);
+}
+
+function translatePeca( $id_peca){
+  global $namePeca;
+  $namePeca = nomesPecas($id_peca);
+}
+
+function translateNomesPecas( $serial_maquina){
+  global $namePecaMaq;
+  $namePecaMaq = nomesPecasMaquina($serial_maquina);
 }
