@@ -11,7 +11,7 @@ function find( $table = null, $id = null ) {
 
 	try {
 	  if ($id) {
-	    $sql = "SELECT * FROM " . $table . " WHERE snum = " . $id;
+	    $sql = "SELECT * FROM " . $table . " WHERE snum = " . "'".$id."'";
 	    $result = $database->query($sql);
 	    
 	    if ($result->num_rows > 0) {

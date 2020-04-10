@@ -11,7 +11,7 @@ function remove( $table = null, $id = null ) {
   try {
     if ($id) {
 
-      $sql = "DELETE FROM " . $table . " WHERE snum = " . $id;
+      $sql = "DELETE FROM " . $table . " WHERE snum = " . "'".$id."'";
       $result = $database->query($sql);
 
       if ($result = $database->query($sql)) {   	

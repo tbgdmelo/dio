@@ -19,7 +19,7 @@ function update($table = null, $id = 0, $data = null) {
 
   $sql  = "UPDATE " . $table;
   $sql .= " SET $items";
-  $sql .= " WHERE snum=" . $id . ";";
+  $sql .= " WHERE snum=" . "'".$id."'" . ";";
 
   try {
     $database->query($sql);
