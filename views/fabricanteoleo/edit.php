@@ -1,5 +1,5 @@
 <?php
- require_once('../../src/fabricantefiltro/functions.php'); 
+ require_once('../../src/fabricanteoleo/functions.php'); 
  edit();
 ?>
 
@@ -109,13 +109,13 @@
   <!-- Begin Page Content -->
   <div class="container-fluid">
   <h2 class="h3 mb-0 text-gray-800">Atualizar Dados do Fabricante</h2>
-<form action="edit.php?id_fabfiltro=<?php echo $fabricantefiltro['id_fabfiltro']; ?>" method="post" enctype="multipart/form-data">
+<form action="edit.php?id_faboleo=<?php echo $fabricanteoleo['id_faboleo']; ?>" method="post" enctype="multipart/form-data">
   <!-- area de campos do form -->
   <hr />
   <div class="row">
     <div class="form-group col-md-3">
       <label for="name">Nome:</label>
-      <input type="text" class="form-control" name="fabricantefiltro['nome']" value="<?php echo $fabricantefiltro['nome']; ?>">
+      <input type="text" class="form-control" name="fabricanteoleo['nome']" value="<?php echo $fabricanteoleo['nome']; ?>">
     </div>
   </div>
   <div id="actions" class="row">

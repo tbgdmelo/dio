@@ -1,6 +1,10 @@
 <?php
- require_once('../../src/fabricantefiltro/functions.php'); 
+ require_once('../../src/maquina/functions.php'); 
  edit();
+ listLubrificacoes();
+ listModelos();
+ listFiltros();
+ listOleos();
 ?>
 
 <head>
@@ -10,7 +14,7 @@
     <link href="../../front/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../../front/css/sb-admin-2.min.css" rel="stylesheet">
-    <title>Atualizar Cadastro Fabricante Filtro</title>
+    <title>Atualizar Cadastro Máquina</title>
 </head>
 <style type="text/css">/* Chart.js */
     @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style><style type="text/css">/* Chart.js */
@@ -108,16 +112,88 @@
 
   <!-- Begin Page Content -->
   <div class="container-fluid">
-  <h2 class="h3 mb-0 text-gray-800">Atualizar Dados do Fabricante</h2>
-<form action="edit.php?id_fabfiltro=<?php echo $fabricantefiltro['id_fabfiltro']; ?>" method="post" enctype="multipart/form-data">
+  <h2 class="h3 mb-0 text-gray-800">Atualizar Dados da Máquina</h2>
+<form action="edit.php?snum=<?php echo $maquina['snum']; ?>" method="post" enctype="multipart/form-data">
   <!-- area de campos do form -->
   <hr />
   <div class="row">
     <div class="form-group col-md-3">
+        <label for="name">Número Serial:</label>
+        <input type="text" class="form-control" name="maquina['snum']" maxlength="50" value="<?php echo $maquina['snum']; ?>">
+    </div>
+    <div class="form-group col-md-3">
       <label for="name">Nome:</label>
-      <input type="text" class="form-control" name="fabricantefiltro['nome']" value="<?php echo $fabricantefiltro['nome']; ?>">
+      <input type="text" class="form-control" name="maquina['nome']" value="<?php echo $maquina['nome']; ?>">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="name">Tempo de Trabalho (Horas):</label>
+        <input type="number" value="<?php echo $maquina['tempotrabalho']; ?>" class="form-control" name="maquina['tempotrabalho']"/>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="name">Tempo Filtro (Dias):</label>
+        <input type="number" value="<?php echo $maquina['tempofiltro']; ?>" class="form-control" name="maquina['tempofiltro']"/>
     </div>
   </div>
+  <div class="row">
+        <div class="form-group col-md-3">
+            <label for="name">Tempo Oleo (Dias):</label>
+            <input type="number" value="<?php echo $maquina['tempooleo']; ?>" class="form-control" name="maquina['tempooleo']"/>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="campo2">Modelo:</label>
+                <select class="form-control" name="maquina['modelo']">
+                    <option onfocus="true">Selecione...</option>
+                        <?php if ($modelos) : ?>
+                            <?php foreach ($modelos as $modelo) : ?>
+                                <option value="<?php echo $modelo['id_modelo']; ?>"><?php echo $modelo['nome']; ?></option>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <option>Nenhum registro encontrado.</option>
+                        <?php endif; ?>
+                </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="campo2">Lubrificacao:</label>
+                <select class="form-control" name="maquina['lubrificacao']">
+                    <option onfocus="true">Selecione...</option>
+                    <?php if ($lubrificacoes) : ?>
+                        <?php foreach ($lubrificacoes as $lubrificacao) : ?>
+                            <option value="<?php echo $lubrificacao['id_lubrificacao']; ?>"><?php echo $lubrificacao['nome']; ?></option>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <option>Nenhum registro encontrado.</option>
+                    <?php endif; ?>
+                </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="campo2">Oleo:</label>
+                <select class="form-control" name="maquina['oleo']">
+                    <option onfocus="true">Selecione...</option>
+                    <?php if ($oleos) : ?>
+                        <?php foreach ($oleos as $oleo) : ?>
+                            <option value="<?php echo $oleo['id_oleo']; ?>"><?php echo $oleo['nome']; ?></option>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <option>Nenhum registro encontrado.</option>
+                    <?php endif; ?>
+                </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="campo2">Filtro:</label>
+                <select class="form-control" name="maquina['filtro']">
+                    <option onfocus="true">Selecione...</option>
+                    <?php if ($filtros) : ?>
+                        <?php foreach ($filtros as $filtro) : ?>
+                            <option value="<?php echo $filtro['id_filtro']; ?>"><?php echo $filtro['nome']; ?></option>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <option>Nenhum registro encontrado.</option>
+                    <?php endif; ?>
+                </select>
+        </div>
+    </div>
   <div id="actions" class="row">
       <div class="col-md-12">
         <button type="submit" class="btn btn-success">Salvar</button>

@@ -1,5 +1,5 @@
 <?php
- require_once('../../src/fabricantefiltro/functions.php'); 
+ require_once('../../src/tipopeca/functions.php'); 
  edit();
 ?>
 
@@ -10,7 +10,7 @@
     <link href="../../front/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../../front/css/sb-admin-2.min.css" rel="stylesheet">
-    <title>Atualizar Cadastro Fabricante Filtro</title>
+    <title>Atualizar Cadastro Tipo de Peça</title>
 </head>
 <style type="text/css">/* Chart.js */
     @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style><style type="text/css">/* Chart.js */
@@ -108,14 +108,14 @@
 
   <!-- Begin Page Content -->
   <div class="container-fluid">
-  <h2 class="h3 mb-0 text-gray-800">Atualizar Dados do Fabricante</h2>
-<form action="edit.php?id_fabfiltro=<?php echo $fabricantefiltro['id_fabfiltro']; ?>" method="post" enctype="multipart/form-data">
+  <h2 class="h3 mb-0 text-gray-800">Atualizar Dados do Tipo de Peça</h2>
+<form action="edit.php?id_tipo=<?php echo $tipopeca['id_tipo']; ?>" method="post" enctype="multipart/form-data">
   <!-- area de campos do form -->
   <hr />
   <div class="row">
     <div class="form-group col-md-3">
       <label for="name">Nome:</label>
-      <input type="text" class="form-control" name="fabricantefiltro['nome']" value="<?php echo $fabricantefiltro['nome']; ?>">
+      <input type="text" class="form-control" name="tipopeca['nome']" value="<?php echo $tipopeca['nome']; ?>">
     </div>
   </div>
   <div id="actions" class="row">
