@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../front/fonts/fontawesome/css/all.min.css">
     <link href="../../front/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="../../front/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../front/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../front/css/bootstrap.css" rel="stylesheet">
     <title>Filtros Cadastrados</title>
 </head>
 <style type="text/css">/* Chart.js */
@@ -125,9 +126,8 @@
                 <?php translateFabricantesF($filtro['fabricante']); ?>
                 <td><?php echo $nameFab; ?></td>
                 <td class="actions text-right">
-                    <a href="view.php?snum=<?php echo $filtro['id_filtro']; ?>" class="btn btn-sm btn-primary text-right">Visualizar</a>
-                    <a href="edit.php?snum=<?php echo $filtro['id_filtro']; ?>" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-filtro" data-maquina="<?php echo $filtro['id_filtro']; ?>"> Excluir</a>
+                    <a href="edit.php?id_filtro=<?php echo $filtro['id_filtro']; ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal-filtro" data-filtro="<?php echo $filtro['id_filtro']; ?>"> Excluir</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -139,3 +139,9 @@
     </tbody>
 </table>
 <?php include('modal.php'); ?>
+
+<script src="<?php echo BASEURL; ?>front/js/jquery.min.js"></script>
+
+<script src="<?php echo BASEURL; ?>front/js/bootstrap.min.js"></script>
+
+<script src="<?php echo BASEURL; ?>front/js/modal_filtro.js"></script>
