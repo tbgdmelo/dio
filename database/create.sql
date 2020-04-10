@@ -31,7 +31,7 @@ CREATE TABLE oleo(
     fabricante INT,
     PRIMARY KEY (id_oleo),
     FOREIGN KEY (fabricante) REFERENCES fabricante_oleo (id_faboleo)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE filtro(
     fabricante INT,
     PRIMARY KEY (id_filtro),
     FOREIGN KEY (fabricante) REFERENCES fabricante_oleo (id_faboleo)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE
 );
 
@@ -63,16 +63,16 @@ CREATE TABLE maquina(
     filtro INT,
     PRIMARY KEY (snum),
     FOREIGN KEY (modelo) REFERENCES modelo_maquina (id_modelo)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE,
     FOREIGN KEY (lubrificacao) REFERENCES tipo_lubrificacao(id_lubrificacao)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE,
     FOREIGN KEY (oleo) REFERENCES oleo (id_oleo)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE,
     FOREIGN KEY (filtro) REFERENCES filtro (id_filtro)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE
 );
 
@@ -108,11 +108,9 @@ CREATE TABLE plano_manutencao(
     motivo VARCHAR (500),
     serial_maquina VARCHAR(50),
     PRIMARY KEY (id_plano),
-    FOREIGN KEY (turno) REFERENCES turno (id_turno)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    FOREIGN KEY (turno) REFERENCES turno (id_turno),
     FOREIGN KEY (serial_maquina) REFERENCES maquina (snum)
-    ON DELETE CASCADE
+    ON DELETE SET NULL
     ON UPDATE CASCADE
 );
 
