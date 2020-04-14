@@ -336,9 +336,12 @@
                         <td><?php echo $nameOleo; ?></td>
                     </tr>
                  </tbody>
+                </table>
+                <table class="table table-hover">
                  <thead class="thead-dark">
                     <tr>
-                        <th>Peças</th>
+                        <th scope="col">Peças</th>
+                        <th scope="col">Quantidade</th>
                     </tr>
                  </thead>
                  <tbody>
@@ -347,6 +350,7 @@
                     <tr>
                       <?php if($name['serial_maquina'] == $maquina['snum']): ?>
                         <td><?php translatePeca($name['id_peca']); echo $namePeca; ?></td>
+                        <td><?php echo $name['quantidade']; ?> </td>
                       <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>

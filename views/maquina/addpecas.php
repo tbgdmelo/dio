@@ -127,7 +127,7 @@
           </div>
           <div class="form-group col-md-1">
             <label for="name">Quantidade:</label>
-            <input type="number" class="form-control"/>
+            <input type="number" name="peca_maquina['quantidade']" class="form-control"/>
         </div>
       </div>
         <div id="actions" class="row">
