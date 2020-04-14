@@ -101,7 +101,7 @@
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="../planomanutencao/add.php">
+        <a class="nav-link" href="addplano.php?snum=<?php echo $maquina['snum']; ?>">
           <i class="fas fa-clipboard-list"></i> 
           <span>Realizar Manutenção</span></a>
       </li>
@@ -243,7 +243,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Peças</div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Peças Distintas</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $totalPecasMaq; ?></div>

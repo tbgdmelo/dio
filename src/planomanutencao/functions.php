@@ -15,6 +15,7 @@ $planosmanutencao = null;
 $planomanutencao = null;
 $turnos = null;
 $maquinas = null;
+$maquina = null;
 
 /**
  *  Listagem de plano de manutencao
@@ -38,15 +39,16 @@ function listTurnos(){
 function listMaquinas(){
     global $maquinas;
     $maquinas = find_all('maquina');
-  }
+}
 
 /**
  *  Cadastro de plano de manutencao
  */
-function add() {
+function add($snum) {
+  global $maquina;
+  $maquina = find('maquina', $snum);
   
   if (!empty($_POST['planomanutencao'])) {
-    
     $planomanutencao = $_POST['planomanutencao'];
     save('plano_manutencao', $planomanutencao);
     header('location: index.php');
@@ -99,9 +101,7 @@ function delete($id_plano = null) {
 /**
  * Buscar as informações pelo ID
  */
-function translatePlano($id_turno, $serial_maq){
+function translatePlano($id_turno){
   global $nameTurno;
-  global $nameMaq;
   $nameTurno = nomesTurno($id_turno);
-  $nameMaq = nomesMaq($serial_maq);
 }

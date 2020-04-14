@@ -16,6 +16,7 @@ require_once('../../database/peca/nomespeca.php');
 require_once('../../database/peca/pecasmaquina.php');
 require_once('../../database/peca/contapecasmaquina.php');
 require_once('../../database/planomanutencao/contamanutencao.php');
+require_once('../../database/turno/nomesturno.php');
 
 $maquinas = null;
 $maquina = null;
@@ -27,6 +28,15 @@ $pecas = null;
 $pecamaquinas = null;
 $pecamaquina = null;
 $namesPecaMaq = null;
+
+/**
+ * Listagem de todos os turnos
+ */
+function listTurnos(){
+  global $turnos;
+  $turnos = find_all('turno');
+}
+
 
 /**
  *  Listagem de maquina
@@ -99,6 +109,17 @@ function addPecas($snum = null) {
   if (!empty($_POST['peca_maquina'])) {
     $peca_maquina = $_POST['peca_maquina'];
     save('peca_maquina', $peca_maquina);
+    header('location: index.php');
+  }
+}
+
+function addPlano($snum = null) {
+  global $maquina;
+  $maquina = find('maquina', $snum);
+
+  if (!empty($_POST['planomanutencao'])) {
+    $planomanutencao = $_POST['planomanutencao'];
+    save('plano_manutencao', $planomanutencao);
     header('location: index.php');
   }
 }
