@@ -1,7 +1,10 @@
 <?php 
   require_once('../../src/maquina/functions.php'); 
   view($_GET['snum']);
-  translateNomesPecas($_GET['snum']);
+  translateNomesPecas();
+  countMaquina();
+  countManutencoes($_GET['snum']);
+  countPecasMaquina($_GET['snum']);
 ?>
 <head>
   <meta charset="utf-8">
@@ -84,7 +87,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Estatisticas</span></a>
       </li>
@@ -98,9 +101,9 @@
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Calendário</span></a>
+        <a class="nav-link" href="../planomanutencao/add.php">
+          <i class="fas fa-clipboard-list"></i> 
+          <span>Realizar Manutenção</span></a>
       </li>
 
       <!-- Divider -->
@@ -191,7 +194,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <button class="btn btn-primary btn-sm" href="#">Trocar de Máquina</button>
+                      <a href="index.php"><button class="btn btn-primary btn-sm" >Trocar de Máquina</button></a>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-exchange-alt fa-2x text-gray-300"></i>
@@ -208,7 +211,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total de Máquinas</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">10 máquinas</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalMaq; ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -224,7 +227,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manutenções Feitas</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">20 manutenções</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalManutencao; ?></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -243,7 +246,7 @@
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Peças</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">12 Peças</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $totalPecasMaq; ?></div>
                         </div>
                         <div class="col">
                           

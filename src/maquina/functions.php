@@ -7,12 +7,15 @@ require_once('../../database/maquina/findmaquina.php');
 require_once('../../database/maquina/insertmaquina.php');
 require_once('../../database/maquina/removemaquina.php');
 require_once('../../database/maquina/updatemaquina.php');
+require_once('../../database/maquina/contamaquina.php');
 require_once('../../database/modelomaquina/nomesmodelo.php');
 require_once('../../database/tipolubrificacao/nomeslubrificacao.php');
 require_once('../../database/oleo/nomesoleo.php');
 require_once('../../database/filtro/nomesfiltro.php');
 require_once('../../database/peca/nomespeca.php');
 require_once('../../database/peca/pecasmaquina.php');
+require_once('../../database/peca/contapecasmaquina.php');
+require_once('../../database/planomanutencao/contamanutencao.php');
 
 $maquinas = null;
 $maquina = null;
@@ -167,7 +170,22 @@ function translatePeca( $id_peca){
   $namePeca = nomesPecas($id_peca);
 }
 
-function translateNomesPecas( $serial_maquina=null){
+function translateNomesPecas(){
   global $namesPecaMaq;
   $namesPecaMaq = nomesPecasMaquina('peca_maquina');
+}
+
+function countMaquina(){
+  global $totalMaq;
+  $totalMaq = totalMaquina('maquina');
+}
+
+function countManutencoes($snum){
+  global $totalManutencao;
+  $totalManutencao = totalManutencao($snum);
+}
+
+function countPecasMaquina($snum){
+  global $totalPecasMaq;
+  $totalPecasMaq = totalPecasMaquina($snum);
 }
