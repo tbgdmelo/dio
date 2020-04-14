@@ -23,7 +23,8 @@ $oleos = null;
 $pecas = null;
 $pecamaquinas = null;
 $pecamaquina = null;
-$name = null;
+$namesPecaMaq = null;
+
 /**
  *  Listagem de maquina
  */
@@ -166,7 +167,7 @@ function translatePeca( $id_peca){
   $namePeca = nomesPecas($id_peca);
 }
 
-function translateNomesPecas( $serial_maquina){
-  global $namePecaMaq;
-  $namePecaMaq = nomesPecasMaquina($serial_maquina);
+function translateNomesPecas( $serial_maquina=null){
+  global $namesPecaMaq;
+  $namesPecaMaq = nomesPecasMaquina('peca_maquina');
 }

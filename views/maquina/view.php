@@ -1,6 +1,7 @@
 <?php 
   require_once('../../src/maquina/functions.php'); 
   view($_GET['snum']);
+  translateNomesPecas($_GET['snum']);
 ?>
 <head>
   <meta charset="utf-8">
@@ -338,10 +339,19 @@
                     </tr>
                  </thead>
                  <tbody>
+                 <?php if ($namesPecaMaq ) : ?>
+                    <?php foreach ($namesPecaMaq as $name) : ?>
                     <tr>
-                        <?php translateNomesPecas($maquina['snum']); ?>
-                        <td><?php echo $namePecaMaq; ?></td>
+                      <?php if($name['serial_maquina'] == $maquina['snum']): ?>
+                        <td><?php translatePeca($name['id_peca']); echo $namePeca; ?></td>
+                      <?php endif; ?>
                     </tr>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="6">Nenhum registro encontrado.</td>
+                    </tr>
+                <?php endif; ?>
                  </tbody>
                 </table>
       </div>
